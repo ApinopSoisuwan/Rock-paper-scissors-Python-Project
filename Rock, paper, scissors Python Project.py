@@ -21,7 +21,6 @@ def RPS_Rule ():
                 print("Error:Try again")
                 return Player()
 
-
     def play_again (n):
         coin_press = 0
         error_massage = "\nError: Play Again Press 1 , Exit Press 0\nPress: "
