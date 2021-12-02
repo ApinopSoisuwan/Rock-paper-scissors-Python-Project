@@ -4,6 +4,7 @@ def RPS_Rule ():
         import random
         bot = random.choice(["Rock","Paper","Scissors"])
         return bot
+
     #Player
     def Player():
         player = {1:"Rock",2:"Paper",3:"Scissors"}
@@ -38,9 +39,9 @@ def RPS_Rule ():
                 print("Error:Try again")
                 return play_again (n)
 
-
     player = Player()
     bot = Bot()
+
     # Rule
     Coin_rule = 0
     while Coin_rule < 1 :
@@ -61,9 +62,7 @@ def RPS_Rule ():
             Coin_rule += 1
             print("\nPlayer: "+ player + "\n" +"Com:    " + bot \
                   +"\n\nBot Win\nBot Win\nBot Win \n\nPlay Again Press 1 , Exit Press 0")
-
     return play_again((input("\nPress: ")))
-
 print(RPS_Rule())
 
 
