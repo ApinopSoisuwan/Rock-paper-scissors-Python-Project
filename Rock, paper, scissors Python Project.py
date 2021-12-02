@@ -17,22 +17,27 @@ def RPS_Rule ():
                 coin_play += 1
                 return player[int(player_choice)]
 
+    player = Player()
+    bot = Bot()
+
     # Rule
     Coin_rule = 0
-    while Coin_rule <= 1 :
-        if Player() == Bot():
-            print("Draw Try Again")
+    while Coin_rule < 1 :
+        if player == bot:
+            print("\nDraw Try Again")
             return RPS_Rule()
         #Player Win
-        elif Player() == "Paper" and Bot() == "Rock" or \
-                Player() == "Rock" and Bot() == "Scissors" \
-                or Player() == "Scissors" and Bot() == "Paper":
-            print("Player Win \nPlayer Again Press 1 , Exit Press 0")
+        elif player == "Paper" and bot == "Rock" or \
+                player == "Rock" and bot == "Scissors" \
+                or player == "Scissors" and bot == "Paper":
+            Coin_rule += 1
+            print("Player: "+ player + "\n" +"Com:    " + bot +"\nPlayer Win \nPlay Again Press 1 , Exit Press 0")
         #Bot Win
-        elif Bot() == "Paper" and Player() == "Rock" or \
-                Bot() == "Rock" and Player() == "Scissors" \
-                or Bot() == "Scissors" and Player() == "Paper":
-            print("Bot Win \nPlayer Again Press 1 , Exit Press 0")
+        elif bot == "Paper" and player == "Rock" or \
+                bot == "Rock" and player == "Scissors" \
+                or bot == "Scissors" and player == "Paper":
+            Coin_rule += 1
+            print("Player: "+ player + "\n" +"Com:    " + bot +"\nBot Win \nPlay Again Press 1 , Exit Press 0")
 
 
 print(RPS_Rule())
