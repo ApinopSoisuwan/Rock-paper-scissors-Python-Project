@@ -18,32 +18,38 @@ def RPS_Rule ():
                 elif int(player_choice) <= 3 :
                     coin_play += 1
                     return player[int(player_choice)]
+
         except:
                 print("Error:Try again")
                 return Player()
 
-    def play_again (n):
-        coin_press = 0
-        error_massage = "\nError: Play Again Press 1 , Exit Press 0\nPress: "
+    def play_again(n):
+        error_massage = "\nError: Play Again Press 1 , Exit Press 0"
         try:
-            while coin_press <= 1:
-                if n == 1:
-                    coin_press += 1
-                    return(RPS_Rule())
-                elif n == 0:
-                    coin_press +=1
-                    return("\nEXIT: ___Thank you___")
-                else:
-                    return play_again(int(input(error_massage)))
+            if n == 1:
+                return(RPS_Rule())
+            elif n == 0:
+                return("\nEXIT: ___Thank you___")
+            elif n == '' or n >= 2 :
+                print(error_massage)
+                return (play_again(int(input("Press: "))))
         except:
-                print("Error:Try again")
-                return play_again (n)
+                print(error_massage)
+                return(play_again(int(input("Press: "))))
 
     player = Player()
     bot = Bot()
 
     # Rule
     Coin_rule = 0
+    # Count score
+    player_score = "Player Score: "
+    player_count = int(str(0))
+    count_score_player = player_score + str(player_count)
+    bot_score = "Computer Score: "
+    bot_count = int(str(0))
+    count_score_bot = bot_score + str(bot_count)
+
     while Coin_rule < 1 :
         if player == bot:
             print("\nDraw Try Again")
@@ -53,16 +59,25 @@ def RPS_Rule ():
                 player == "Rock" and bot == "Scissors" \
                 or player == "Scissors" and bot == "Paper":
             Coin_rule += 1
-            print("\nPlayer: "+ player + "\n" +"Com:    " + bot \
+            player_count += 1
+            print(player_count)
+            print("\nPlayer: "+ player + "\n" +"Com:    " + bot +\
+                    '\n'+ count_score_player + " " + count_score_bot\
                   +"\n\nPlayer Win\nPlayer Win\nPlayer Win \n\nPlay Again Press 1 , Exit Press 0")
         #Bot Win
         elif bot == "Paper" and player == "Rock" or \
                 bot == "Rock" and player == "Scissors" \
                 or bot == "Scissors" and player == "Paper":
             Coin_rule += 1
-            print("\nPlayer: "+ player + "\n" +"Com:    " + bot \
+            bot_count += 1
+            print("\nPlayer: "+ player + "\n" +"Com:    " + bot +\
+                  '\n'+ count_score_player+ " " + count_score_bot\
                   +"\n\nBot Win\nBot Win\nBot Win \n\nPlay Again Press 1 , Exit Press 0")
-    return play_again((input("\nPress: ")))
+    try:
+        return play_again(int(input("Press: ")))
+    except:
+        print("\nError: Play Again Press 1 , Exit Press 0")
+        return play_again(int(input("Press: ")))
 print(RPS_Rule())
 
 
