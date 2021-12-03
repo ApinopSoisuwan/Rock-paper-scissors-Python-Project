@@ -37,11 +37,6 @@ def RPS_Rule ():
                 print(error_massage)
                 return(play_again(int(input("Press: "))))
 
-    player = Player()
-    bot = Bot()
-
-    # Rule
-    Coin_rule = 0
     # Count score
     player_score = "Player Score: "
     player_count = int(str(0))
@@ -50,6 +45,10 @@ def RPS_Rule ():
     bot_count = int(str(0))
     count_score_bot = bot_score + str(bot_count)
 
+    player = Player()
+    bot = Bot()
+    # Rule
+    Coin_rule = 0
     while Coin_rule < 1 :
         if player == bot:
             print("\nDraw Try Again")
